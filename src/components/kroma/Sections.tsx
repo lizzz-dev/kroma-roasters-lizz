@@ -34,10 +34,15 @@ const field =
 
 function LazyImg({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
   const [loaded, setLoaded] = useState(false);
+  const ref = useRef<HTMLImageElement>(null);
+  useEffect(() => {
+    if (ref.current?.complete && ref.current.naturalWidth > 0) setLoaded(true);
+  }, []);
   return (
     <div className={`relative overflow-hidden ${className}`}>
       {!loaded && <Skeleton className="absolute inset-0 rounded-none bg-secondary" />}
       <img
+        ref={ref}
         src={src}
         alt={alt}
         loading="lazy"
