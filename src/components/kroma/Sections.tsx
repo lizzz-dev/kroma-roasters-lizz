@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { toast } from "sonner";
 import {
   ShoppingBag, ArrowRight, Play, Plus, Minus, Mountain, Leaf, Award, Copy, MapPin, Clock, Phone, Mail,
-  Instagram, Youtube, Twitter, Loader2, Droplets, Timer, Scale,
+  Camera, CirclePlay, AtSign, Loader2, Droplets, Timer, Scale,
 } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -517,8 +517,8 @@ export function Footer() {
           “Our Direct-Trade Manifesto: we know every farmer by name, publish every price we pay, and roast only what we can ship fresh.”
         </p>
         <div className="flex gap-3 md:justify-end">
-          {[[Instagram, "Instagram"], [Twitter, "X"], [Youtube, "YouTube Brew Guides"]].map(([I, l]) => {
-            const Icon = I as typeof Instagram;
+          {[[Camera, "Instagram"], [AtSign, "X"], [CirclePlay, "YouTube Brew Guides"]].map(([I, l]) => {
+            const Icon = I as typeof Camera;
             return (
               <a key={l as string} href="#" aria-label={l as string} className="glass grid h-10 w-10 place-items-center rounded-full hover:border-primary-glow">
                 <Icon className="h-4 w-4" />
