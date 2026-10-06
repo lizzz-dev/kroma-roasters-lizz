@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState, type ReactNode, type MouseEvent } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type ReactNode, type MouseEvent } from "react";
 import { ClientOnly } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { toast } from "sonner";
