@@ -107,7 +107,7 @@ function Scene() {
   );
 }
 
-export default function HeroCoffee3D({ embedUrl }: { embedUrl?: string }) {
+export default function HeroCoffee3D({ embedUrl }: { embedUrl?: string | undefined }) {
   const [embedFailed, setEmbedFailed] = useState(false);
   if (embedUrl && !embedFailed) {
     return (

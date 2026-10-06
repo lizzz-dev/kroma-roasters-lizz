@@ -99,7 +99,7 @@ export function Header() {
 }
 
 /* ---------------- Hero ---------------- */
-export function Hero({ embedUrl }: { embedUrl?: string }) {
+export function Hero({ embedUrl }: { embedUrl?: string | undefined }) {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 600], [0, 120]);
   return (
