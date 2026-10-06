@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
+import { FilmModal } from "./FilmModal";
 import { useCart, subscriptionPrice } from "@/lib/cart";
 import yirgaImg from "@/assets/yirgacheffe.jpg";
 import geishaImg from "@/assets/geisha.jpg";
@@ -120,9 +121,11 @@ export function Hero({ embedUrl }: { embedUrl?: string | undefined }) {
             <a href="#blends" className={btnPrimary}>
               Explore Single Origins <ArrowRight className="h-4 w-4" />
             </a>
-            <button onClick={() => toast("The roasting film premieres soon.")} className={btnGlass}>
-              <Play className="h-4 w-4" /> Watch Roasting Film
-            </button>
+            <FilmModal>
+              <button type="button" className={btnGlass}>
+                <Play className="h-4 w-4" /> Watch Roasting Film
+              </button>
+            </FilmModal>
           </div>
         </motion.div>
         <motion.div style={{ y }} className="relative h-[420px] md:h-[540px]">
