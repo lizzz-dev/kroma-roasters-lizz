@@ -13,7 +13,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 }
 export const useCart = () => useContext(CartCtx);
 
-/** Subscription pricing: base price per bag, 10% off monthly? No — biweekly saves 15%, monthly saves 10%. */
+/** Subscription pricing: every-2-weeks saves 15%, monthly saves 10%. */
 export const BAG_PRICE = 22;
 export function subscriptionPrice(bags: number, cadence: "biweekly" | "monthly") {
   const discount = cadence === "biweekly" ? 0.15 : 0.1;
