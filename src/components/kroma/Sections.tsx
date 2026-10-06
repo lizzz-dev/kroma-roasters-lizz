@@ -167,7 +167,7 @@ function Radar({ values }: { values: number[] }) {
   };
   const poly = values.map((v, i) => pt(i, v * 8).join(",")).join(" ");
   return (
-    <svg viewBox="0 0 200 200" className="mx-auto w-full max-w-[240px]">
+    <svg viewBox="-24 -6 248 212" className="mx-auto w-full max-w-[240px]">
       {[2, 4, 6, 8, 10].map((r) => (
         <polygon key={r} points={[0, 1, 2, 3].map((i) => pt(i, r * 8).join(",")).join(" ")} fill="none" stroke="var(--border)" />
       ))}
