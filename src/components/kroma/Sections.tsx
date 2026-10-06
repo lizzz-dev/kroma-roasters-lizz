@@ -211,7 +211,7 @@ function TiltCard({ children, className = "" }: { children: ReactNode; className
 
 export function Process() {
   const [roast, setRoast] = useState(0);
-  const r = ROASTS[roast];
+  const r = ROASTS[roast] ?? ROASTS[0]!;
   return (
     <section id="process" className="mx-auto max-w-7xl px-5 py-24">
       <motion.div {...reveal} className="mb-12 max-w-2xl">
@@ -292,7 +292,7 @@ export function Collection() {
   const quickAdd = (i: number, e?: MouseEvent) => {
     e?.stopPropagation();
     add();
-    toast.success(`${PRODUCTS[i].name} added to your Tasting Box`);
+    toast.success(`${PRODUCTS[i]?.name} added to your Tasting Box`);
   };
   return (
     <section id="blends" className="bg-cacao py-24">
