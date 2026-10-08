@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Toaster } from "sonner";
 import { CartProvider } from "@/lib/cart";
 import { Header, Hero, Process, Collection, Subscription, Contact, Footer } from "@/components/kroma/Sections";
+import { RoastFinder } from "@/components/kroma/RoastFinder";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,6 +29,7 @@ function Index() {
         <Hero embedUrl={HERO_EMBED_URL} />
         <Process />
         <Collection />
+        <RoastFinder />
         <Subscription />
         <Contact />
       </main>
