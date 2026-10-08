@@ -2,6 +2,7 @@ import { useState, type FormEvent, type ReactNode } from "react";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import filmAsset from "@/assets/roasting-film.mp4.asset.json";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -39,7 +40,18 @@ export function FilmModal({ children }: { children: ReactNode }) {
             A short documentary capturing our high-altitude single-origin harvests in Huila and Yirgacheffe. Official release coming Winter 2026.
           </DialogDescription>
         </DialogHeader>
-        <form onSubmit={submit} noValidate className="mt-2 space-y-3">
+        <video
+          src={filmAsset.url}
+          className="mt-2 aspect-video w-full rounded-2xl border border-border/60 object-cover shadow-glow"
+          autoPlay
+          loop
+          muted
+          playsInline
+          controls
+          preload="auto"
+          aria-label="The Craft of Roasting — teaser film of beans roasting in a copper drum"
+        />
+        <form onSubmit={submit} noValidate className="mt-3 space-y-3">
           <div className="flex flex-col gap-3 sm:flex-row">
             <Input
               type="email"
