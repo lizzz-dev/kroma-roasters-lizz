@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Serve the popup film through CDN asset pointers with WebM and MP4 sources so playback works across browsers without committing video binaries.
