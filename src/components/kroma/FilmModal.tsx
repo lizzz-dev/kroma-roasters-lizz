@@ -2,7 +2,8 @@ import { useState, type FormEvent, type ReactNode } from "react";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import filmAsset from "@/assets/roasting-film.mp4.asset.json";
+import filmAsset from "@/assets/craft-film.mp4.asset.json";
+import filmWebmAsset from "@/assets/craft-film.webm.asset.json";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -41,7 +42,6 @@ export function FilmModal({ children }: { children: ReactNode }) {
           </DialogDescription>
         </DialogHeader>
         <video
-          src={filmAsset.url}
           className="mt-2 aspect-video w-full rounded-2xl border border-border/60 object-cover shadow-glow"
           autoPlay
           loop
@@ -49,8 +49,11 @@ export function FilmModal({ children }: { children: ReactNode }) {
           playsInline
           controls
           preload="auto"
-          aria-label="The Craft of Roasting — teaser film of beans roasting in a copper drum"
-        />
+          aria-label="The Craft of Roasting — roasting, pour-over, and espresso film"
+        >
+          <source src={filmWebmAsset.url} type="video/webm" />
+          <source src={filmAsset.url} type="video/mp4" />
+        </video>
         <form onSubmit={submit} noValidate className="mt-3 space-y-3">
           <div className="flex flex-col gap-3 sm:flex-row">
             <Input
