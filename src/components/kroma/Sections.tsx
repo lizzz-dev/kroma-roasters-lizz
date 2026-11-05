@@ -9,6 +9,7 @@ import {
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
 import { FilmModal } from "./FilmModal";
+import { Button } from "@/components/ui/button";
 import { useCart, subscriptionPrice } from "@/lib/cart";
 import yirgaImg from "@/assets/yirgacheffe.jpg";
 import geishaImg from "@/assets/geisha.jpg";
@@ -62,7 +63,7 @@ const NAV = [
 ];
 
 export function Header() {
-  const { count } = useCart();
+  const { count, setOpen } = useCart();
   return (
     <header className="glass fixed inset-x-0 top-0 z-50 border-x-0 border-t-0">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
@@ -82,10 +83,10 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <a href="#blends" className="hidden rounded-full bg-foreground px-4 py-2 text-xs font-semibold text-background transition hover:bg-primary-glow sm:inline-flex">
+          <Button onClick={() => setOpen(true)} className="hidden h-auto rounded-full bg-foreground px-4 py-2 text-xs font-semibold text-background transition hover:bg-primary-glow sm:inline-flex">
             Order Tasting Box
-          </a>
-          <a href="#blends" aria-label="Shopping bag" className="relative rounded-full p-2 transition hover:bg-secondary">
+          </Button>
+          <Button variant="ghost" size="icon" onClick={() => setOpen(true)} aria-label="Shopping bag" className="relative rounded-full p-2 transition hover:bg-secondary">
             <ShoppingBag className="h-5 w-5" />
             {count > 0 && (
               <motion.span
@@ -97,7 +98,7 @@ export function Header() {
                 {count}
               </motion.span>
             )}
-          </a>
+          </Button>
         </div>
       </div>
     </header>
@@ -299,8 +300,9 @@ export function Collection() {
   const p = open !== null ? PRODUCTS[open] : null;
   const quickAdd = (i: number, e?: MouseEvent) => {
     e?.stopPropagation();
-    add();
-    toast.success(`${PRODUCTS[i]?.name} added to your Tasting Box`);
+    const product = PRODUCTS[i];
+    if (!product) return;
+    add(1, product.name);
   };
   return (
     <section id="blends" className="bg-cacao py-24">
@@ -374,7 +376,7 @@ export function Collection() {
                     </li>
                   ))}
                 </ol>
-                <button onClick={() => { quickAdd(open!); setOpen(null); }} className={`${btnPrimary} mt-6 w-full`}>
+                <button onClick={() => { if (open === null) return; quickAdd(open); setOpen(null); }} className={`${btnPrimary} mt-6 w-full`}>
                   Add to Tasting Box — ${p.price}
                 </button>
               </div>

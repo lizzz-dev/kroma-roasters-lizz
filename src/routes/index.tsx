@@ -3,6 +3,7 @@ import { Toaster } from "sonner";
 import { CartProvider } from "@/lib/cart";
 import { Header, Hero, Process, Collection, Subscription, Contact, Footer } from "@/components/kroma/Sections";
 import { RoastFinder } from "@/components/kroma/RoastFinder";
+import { TastingBox } from "@/components/kroma/TastingBox";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,6 +35,7 @@ function Index() {
         <Contact />
       </main>
       <Footer />
+      <TastingBox />
       <Toaster theme="dark" position="bottom-right" toastOptions={{ style: { background: "var(--surface)", border: "1px solid var(--border)", color: "var(--foreground)" } }} />
     </CartProvider>
   );

@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Serve the popup film through CDN asset pointers with WebM and MP4 sources so playback works across browsers without committing video binaries.
+- Keep tasting-box quantities and pricing in a pure shared module; the cart provider owns its session-only drawer state and simulated checkout never creates an order.

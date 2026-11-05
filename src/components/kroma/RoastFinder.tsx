@@ -84,7 +84,7 @@ export function RoastFinder() {
                   <p className="text-lg text-foreground/90">{rec.headline}</p>
                   <p className="text-sm text-muted-foreground">{rec.reason}</p>
                   <p className="rounded-xl border border-primary/30 bg-primary/10 p-3 text-sm"><span className="text-primary-glow">Brew tip: </span>{rec.brewTip}</p>
-                  <button type="button" onClick={() => { add(1); toast.success(`${rec.product} added to your Tasting Box`); }} className="inline-flex items-center gap-2 rounded-full border border-primary px-5 py-2 text-sm text-primary-glow hover:bg-primary/15">
+                  <button type="button" onClick={() => { add(1, rec.product); }} className="inline-flex items-center gap-2 rounded-full border border-primary px-5 py-2 text-sm text-primary-glow hover:bg-primary/15">
                     <ShoppingBag className="h-4 w-4" /> Add to Tasting Box
                   </button>
                 </motion.div>

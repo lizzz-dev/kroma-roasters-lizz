@@ -1,12 +1,19 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
+import { BOX_COFFEES, boxCount, changeBox, type BoxItems } from "./tasting-box";
 
-type Ctx = { count: number; add: (n?: number) => void };
-const CartCtx = createContext<Ctx>({ count: 0, add: () => {} });
+type Ctx = { count: number; add: (n?: number, name?: string) => void; items: BoxItems; change: (name: string, delta: number) => void; clear: () => void; open: boolean; setOpen: (open: boolean) => void };
+const CartCtx = createContext<Ctx>({ count: 0, add: () => {}, items: {}, change: () => {}, clear: () => {}, open: false, setOpen: () => {} });
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [count, setCount] = useState(0);
+  const [items, setItems] = useState<BoxItems>({});
+  const [open, setOpen] = useState(false);
+  const change = (name: string, delta: number) => setItems((current) => changeBox(current, name, delta));
   return (
-    <CartCtx.Provider value={{ count, add: (n = 1) => setCount((c) => c + n) }}>
+    <CartCtx.Provider value={{ count: count + boxCount(items), items, change, clear: () => setItems({}), open, setOpen, add: (n = 1, name) => {
+      if (name && BOX_COFFEES.some((coffee) => coffee.name === name)) { change(name, n); setOpen(true); }
+      else setCount((c) => c + n);
+    } }}>
       {children}
     </CartCtx.Provider>
   );
