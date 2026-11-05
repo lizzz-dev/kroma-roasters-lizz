@@ -2,8 +2,8 @@ import { useState, type FormEvent, type ReactNode } from "react";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import filmAsset from "@/assets/craft-film.mp4.asset.json";
-import filmWebmAsset from "@/assets/craft-film.webm.asset.json";
+import filmAsset from "@/assets/craft-film-extended.mp4.asset.json";
+import filmWebmAsset from "@/assets/craft-film-extended.webm.asset.json";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
