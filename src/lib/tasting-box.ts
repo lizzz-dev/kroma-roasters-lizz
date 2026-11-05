@@ -7,7 +7,7 @@ export const BOX_COFFEES = [
   { name: "Ethiopian Yirgacheffe G1", price: 22, image: yirgacheffe, notes: "White Peach · Jasmine · Meyer Lemon" },
   { name: "Colombian Geisha Reserva", price: 26, image: geisha, notes: "Blackberry · Cocoa Nib · Cane Sugar" },
   { name: "Midnight Velvet Espresso", price: 20, image: espresso, notes: "Dark Cacao · Vanilla · Hazelnut" },
-];
+] as const;
 export type BoxItems = Record<string, number>;
 export const boxCount = (items: BoxItems) => Object.values(items).reduce((sum, n) => sum + n, 0);
 export const boxReady = (items: BoxItems) => boxCount(items) === BOX_SIZE;
